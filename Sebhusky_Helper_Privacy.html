@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медвежья Берлога | Политика конфиденциальности</title>
+    <style>
+        :root {
+            --bg-color: #181512;
+            --surface-color: #24201c;
+            --text-main: #e6dfd5;
+            --text-muted: #a39c93;
+            --accent-color: #d97706; /* Медовый/Янтарный */
+            --accent-hover: #f59e0b;
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .emoji-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            transition: transform 0.2s ease;
+        }
+
+        li:hover {
+            transform: translateX(5px);
+        }
+
+        li::before {
+            content: "🐾";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background: rgba(217, 119, 6, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 2rem 0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Мобильная адаптация */
+        @media (max-width: 600px) {
+            .card { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="emoji-icon">🐻</div>
+            <h1>Медвежья Берлога</h1>
+            <p class="subtitle">Р-р-р… Привет. Проходи, располагайся поудобнее.</p>
+        </header>
+
+        <div class="card">
+            <p>Знаешь, хоть я и большой пушистый медведь, которому больше по душе обнимашки и сладкие ягоды, я всё-таки живу в цифровом лесу. А здесь есть свои строгие правила. Поэтому я, вооружившись своими большими лапами, напечатал для тебя этот документ.</p>
+            <p>Ур-р… Обещаю, я не буду грузить тебя скучным юридическим языком. Я расскажу всё честно, глядя прямо в глаза.</p>
+        </div>
+
+        <div class="card">
+            <h2>📜 Политика конфиденциальности</h2>
+            
+            <h3>1. Что именно попадает в мои лапы</h3>
+            <p>Когда ты начинаешь со мной общаться, мне нужно немного информации, чтобы знать, с кем я имею дело:</p>
+            <ul>
+                <li><strong>Твой Telegram ID:</strong> Это твой уникальный запах в лесу. Он нужен мне, чтобы отличать тебя от других гостей и вести статистику.</li>
+                <li><strong>Твои сообщения и медиа:</strong> Тексты, голосовые сообщения, картинки и файлы (весом до 20 МБ — более тяжелые камни я просто не подниму).</li>
+                <li><strong>Настройки:</strong> Твоя выбранная модель (быстрая или Pro), заданные тобой роли, темы для тренировок и системные инструкции.</li>
+                <li><strong>Бизнес-связи:</strong> Если ты доверишь мне работу своего личного секретаря, я запомню ID нашего соединения, чтобы отвечать твоим контактам.</li>
+            </ul>
+
+            <h3>2. Зачем мне твои секреты</h3>
+            <p>Я не собираю данные ради того, чтобы они просто лежали в углу берлоги. Они нужны для дела:</p>
+            <ul>
+                <li><strong>Поддержание беседы:</strong> Я держу контекст нашего диалога в своей памяти ровно 2 часа. После этого я «засыпаю» и забываю, о чём мы говорили.</li>
+                <li><strong>Генерация ответов:</strong> Я отправляю твои тексты и файлы в мозг нейросети, чтобы придумать для тебя самый умный и тёплый ответ.</li>
+                <li><strong>Статистика:</strong> Мой Создатель ведёт подсчет уникальных гостей и ошибок, а иногда делает общую рассылку.</li>
+                <li><strong>Защита от спама:</strong> Я считаю твои сообщения, чтобы никто не закидал меня шишками (DDoS) и не вывел из себя.</li>
+            </ul>
+
+            <h3>3. Кому я показываю твои данные</h3>
+            <ul>
+                <li><strong>Google (Gemini API):</strong> Мой интеллект работает на их серверах. Все твои вопросы летят к ним для обработки.</li>
+                <li><strong>MongoDB:</strong> Это моя надёжная кладовая, где хранится статистика и системные настройки.</li>
+            </ul>
+
+            <h3>4. Как долго я храню твои следы</h3>
+            <ul>
+                <li>Контекст беседы удаляется автоматически через 2 часа тишины.</li>
+                <li>Твой Telegram ID остаётся в моей базе данных статистики навсегда.</li>
+                <li>Если ты захочешь всё забыть, просто почеши меня за ушком командой <code>/clear</code> — и я тут же сотру текущий диалог.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>⚠️ Отказ от ответственности</h2>
+            
+            <div class="warning-box">
+                <p>Хм-м… А теперь серьёзно. Внимательно послушай своего медведя.</p>
+            </div>
+
+            <ul>
+                <li><strong>Я — искусственный интеллект.</strong> Хоть я и звучу как живой, теплый зверь, мои мозги — это код. Я могу придумывать несуществующие факты или выдавать чепуху с очень уверенным видом.</li>
+                <li><strong>Никаких советов для жизни.</strong> Никогда не используй мои ответы как руководство к действию в медицинских, юридических или финансовых вопросах. Если что-то болит — иди к врачу.</li>
+                <li><strong>Безопасность файлов.</strong> Не отправляй мне пароли, номера кредитных карт и государственные тайны. Бережёного, как говорится, лес бережёт.</li>
+                <li><strong>Гарантии стабильности.</strong> Я могу в любой момент уйти в спячку (упасть с ошибкой 503). Создатель предоставляет меня "как есть".</li>
+                <li><strong>Режим секретаря.</strong> Если ты включишь меня отвечать твоим контактам, я не несу ответственности за то, что ляпну твоему начальнику. Проверяй за мной!</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Продолжая чесать мне пузико и отправляя сообщения в чат, ты автоматически соглашаешься с этими правилами.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.5;">© 2026 AI Bear Bot. Все права защищены лесной братвой.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
