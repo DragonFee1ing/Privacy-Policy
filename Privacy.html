@@ -6,17 +6,16 @@ permalink: /
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebhusky Helper | Центр навигации</title>
+    <title>Sebhusky Hub | Центр навигации</title>
     <style>
+        /* Минималистичная цветовая палитра */
         :root {
-            --bg-color: #181512;
-            --surface-color: #24201c;
-            --surface-hover: #2c2722;
-            --text-main: #e6dfd5;
-            --text-muted: #a39c93;
-            --accent-color: #d97706; 
-            --accent-glow: rgba(217, 119, 6, 0.2);
-            --border-radius: 16px;
+            --bg-primary: #0a0a0a;
+            --text-primary: #ededed;
+            --text-secondary: #888888;
+            --border-color: #222222;
+            --border-hover: #555555;
+            --card-hover-bg: rgba(255, 255, 255, 0.02);
         }
 
         * {
@@ -26,125 +25,106 @@ permalink: /
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            min-height: 100vh;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 3rem 1rem;
+            min-height: 100vh;
+            padding: 5rem 1.5rem;
         }
 
         .container {
-            max-width: 900px;
             width: 100%;
-            animation: fadeIn 0.8s ease-out;
+            max-width: 600px; /* Узкий контейнер для стильного чтения */
+            animation: fade-in 0.8s ease-out;
         }
 
         header {
-            text-align: center;
             margin-bottom: 4rem;
         }
 
-        .logo {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
         h1 {
-            color: var(--text-main);
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.75rem;
+            font-weight: 500;
             letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
         }
 
         .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 400;
         }
 
-        /* Сетка для карточек (автоматически расширяется) */
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        /* Стилизация ссылок-карточек */
-        .nav-card {
-            background-color: var(--surface-color);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            text-decoration: none;
+        /* Список навигации */
+        .nav-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            gap: 1rem; /* Отступы между карточками */
         }
 
-        .nav-card:hover {
-            background-color: var(--surface-hover);
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 20px var(--accent-glow);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            width: 60px;
-            height: 60px;
+        .nav-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
+            justify-content: space-between;
+            padding: 1.25rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
         }
 
-        .nav-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+        .nav-item:hover {
+            border-color: var(--border-hover);
+            background: var(--card-hover-bg);
+            transform: translateY(-2px);
         }
 
-        .card-title {
-            color: var(--accent-color);
-            font-size: 1.25rem;
-            font-weight: 600;
+        .item-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
         }
 
-        .card-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            flex-grow: 1;
+        .item-title {
+            font-weight: 500;
+            font-size: 1rem;
         }
 
-        .card-arrow {
-            color: var(--text-muted);
-            align-self: flex-end;
-            transition: color 0.3s ease, transform 0.3s ease;
+        .item-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
         }
 
-        .nav-card:hover .card-arrow {
-            color: var(--accent-color);
-            transform: translateX(5px);
+        /* Стрелка перехода */
+        .item-arrow {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        .nav-item:hover .item-arrow {
+            transform: translateX(4px);
+            color: var(--text-primary);
         }
 
         footer {
             margin-top: auto;
-            padding-top: 4rem;
+            padding-top: 5rem;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Плавное появление страницы */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -152,48 +132,45 @@ permalink: /
 
     <div class="container">
         <header>
-            <div class="logo">🐾</div>
-            <h1>Sebhusky Helper</h1>
-            <p class="subtitle">Главный центр навигации бота</p>
+            <h1>Sebhusky Hub</h1>
+            <p class="subtitle">Центр приватности и документации</p>
         </header>
 
-        <!-- Сетка хаба. Благодаря CSS Grid (auto-fill), карточки будут автоматически 
-             выстраиваться в ряды в зависимости от ширины экрана. -->
-        <div class="nav-grid">
+        <div class="nav-list">
             
-            <!-- Карточка 1: Политика конфиденциальности -->
-            <a href="pages/Sebhusky_Helper_Privacy.html" class="nav-card">
-                <div class="card-icon">📜</div>
-                <div class="card-title">Политика конфиденциальности</div>
-                <div class="card-desc">Правила обработки данных, отказ от ответственности и медвежьи клятвы.</div>
-                <div class="card-arrow">➔</div>
+            <!-- Переход 1: Sebhusky Helper -->
+            <a href="Sebhusky_Helper_Privacy.html" class="nav-item">
+                <div class="item-content">
+                    <span class="item-title">Sebhusky Helper</span>
+                    <span class="item-desc">Политика конфиденциальности ИИ-ассистента</span>
+                </div>
+                <span class="item-arrow">→</span>
             </a>
 
-            <!-- ШАБЛОН ДЛЯ ДОБАВЛЕНИЯ НОВЫХ КАРТОЧЕК В БУДУЩЕМ -->
-            <!-- 
-            <a href="ВАША_ССЫЛКА.html" class="nav-card">
-                <div class="card-icon">⚙️</div>
-                <div class="card-title">Настройки / Команды</div>
-                <div class="card-desc">Описание функционала, доступных команд и возможностей бота.</div>
-                <div class="card-arrow">➔</div>
+            <!-- Переход 2: Sebhusky Encryptor -->
+            <a href="Sebhusky_Encryptor_Privacy.html" class="nav-item">
+                <div class="item-content">
+                    <span class="item-title">CryptoBot (Encryptor)</span>
+                    <span class="item-desc">Криптографический протокол и защита данных</span>
+                </div>
+                <span class="item-arrow">→</span>
             </a>
-            -->
 
-            <!-- 
-            <a href="https://t.me/your_bot" class="nav-card">
-                <div class="card-icon">🤖</div>
-                <div class="card-title">Перейти к боту</div>
-                <div class="card-desc">Запустить бота в Telegram.</div>
-                <div class="card-arrow">➔</div>
+            <!-- Переход 3: Sebhusky Windows -->
+            <a href="Sebhusky_Windows_Privacy.html" class="nav-item">
+                <div class="item-content">
+                    <span class="item-title">Sebhusky Windows</span>
+                    <span class="item-desc">Правила обработки данных в среде Windows</span>
+                </div>
+                <span class="item-arrow">→</span>
             </a>
-            -->
 
         </div>
-    </div>
 
-    <footer>
-        <p>© 2026 Sebhusky Helper. Все системы работают в штатном режиме.</p>
-    </footer>
+        <footer>
+            <p>© 2026 Sebhusky Projects. Все системы работают в штатном режиме.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
