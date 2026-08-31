@@ -1,11 +1,8 @@
----
-permalink: /
----
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sebhusky Hub | Центр навигации</title>
     <style>
         /* Минималистичная цветовая палитра */
@@ -33,13 +30,18 @@ permalink: /
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            /* Фикс для мобильных браузеров с плавающей панелью адреса */
+            min-height: 100dvh; 
             padding: 5rem 1.5rem;
         }
 
         .container {
             width: 100%;
-            max-width: 600px; /* Узкий контейнер для стильного чтения */
+            max-width: 600px;
             animation: fade-in 0.8s ease-out;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         header {
@@ -63,7 +65,7 @@ permalink: /
         .nav-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem; /* Отступы между карточками */
+            gap: 1rem;
         }
 
         .nav-item {
@@ -73,13 +75,15 @@ permalink: /
             padding: 1.25rem 1.5rem;
             background: transparent;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px; /* Чуть скругленнее для современных мобильных интерфейсов */
             text-decoration: none;
             color: var(--text-primary);
             transition: all 0.3s ease;
+            /* Предотвращение выделения текста при тапах на телефоне */
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .nav-item:hover {
+        .nav-item:hover, .nav-item:active {
             border-color: var(--border-hover);
             background: var(--card-hover-bg);
             transform: translateY(-2px);
@@ -89,6 +93,7 @@ permalink: /
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+            padding-right: 1rem; /* Отступ от текста до стрелки */
         }
 
         .item-title {
@@ -99,6 +104,7 @@ permalink: /
         .item-desc {
             color: var(--text-secondary);
             font-size: 0.85rem;
+            line-height: 1.4;
         }
 
         /* Стрелка перехода */
@@ -106,25 +112,72 @@ permalink: /
             color: var(--text-secondary);
             font-size: 1.2rem;
             transition: transform 0.3s ease, color 0.3s ease;
+            flex-shrink: 0; /* Чтобы стрелка не сжималась на узких экранах */
         }
 
-        .nav-item:hover .item-arrow {
+        .nav-item:hover .item-arrow, .nav-item:active .item-arrow {
             transform: translateX(4px);
             color: var(--text-primary);
         }
 
         footer {
             margin-top: auto;
-            padding-top: 5rem;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
             text-align: center;
             font-size: 0.8rem;
             color: var(--text-secondary);
+            opacity: 0.7;
         }
 
         /* Плавное появление страницы */
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === МОБИЛЬНАЯ АДАПТАЦИЯ === */
+        @media (max-width: 480px) {
+            body {
+                padding: 2.5rem 1rem 1rem 1rem;
+            }
+
+            header {
+                margin-bottom: 2.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .nav-list {
+                gap: 0.75rem;
+            }
+
+            .nav-item {
+                padding: 1rem 1.2rem;
+            }
+
+            .item-title {
+                font-size: 0.95rem;
+            }
+
+            .item-desc {
+                font-size: 0.8rem;
+            }
+
+            /* На мобильных устройствах отключаем сдвиг при hover, оставляем только изменение цвета */
+            .nav-item:hover, .nav-item:active {
+                transform: none; 
+            }
+            
+            .nav-item:hover .item-arrow, .nav-item:active .item-arrow {
+                transform: translateX(2px);
+            }
         }
     </style>
 </head>
@@ -150,7 +203,7 @@ permalink: /
             <!-- Переход 2: Sebhusky Encryptor -->
             <a href="pages/Sebhusky_Encryptor_Privacy.html" class="nav-item">
                 <div class="item-content">
-                    <span class="item-title">Sebhusky's Encryptor)</span>
+                    <span class="item-title">Sebhusky's Encryptor</span>
                     <span class="item-desc">Политика конфиденциальности криптографического бота для обмена сообщениями</span>
                 </div>
                 <span class="item-arrow">→</span>
@@ -168,7 +221,7 @@ permalink: /
         </div>
 
         <footer>
-            <p>© 2026 Sebhusky Projects/Dragon Feeling. Все права защищены.</p>
+            <p>© 2026 Sebhusky Projects / Dragon Feeling. Все права защищены.</p>
         </footer>
     </div>
 
