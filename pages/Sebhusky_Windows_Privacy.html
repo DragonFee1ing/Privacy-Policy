@@ -16,7 +16,7 @@
         body {
             background-color: #e8e6e1;
             color: var(--ink-main);
-            font-family: 'Times New Roman', Times, serif; /* Официальный юридический шрифт */
+            font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 2rem 1rem;
             display: flex;
@@ -36,7 +36,6 @@
             position: relative;
         }
 
-        /* Тонкий намек на угрозу: красная линия сверху */
         .legal-document::before {
             content: '';
             position: absolute;
@@ -140,12 +139,12 @@
             margin-top: 0;
         }
 
-        /* Кнопка "подписания" */
         .signature-block {
             margin-top: 4rem;
             text-align: center;
             border-top: 1px dashed var(--border-color);
             padding-top: 2rem;
+            min-height: 100px; /* Чтобы блок не схлопывался, когда кнопка улетит */
         }
 
         .evasive-button {
@@ -160,17 +159,9 @@
             border: 2px solid var(--ink-main);
             cursor: crosshair;
             text-decoration: none;
-            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-        }
-
-        /* Механика убегания через CSS для демонстрации */
-        .evasive-button:hover {
-            transform: translate(30px, -40px) scale(0.9);
-            background-color: var(--alert-red);
-            border-color: var(--alert-red);
-            box-shadow: 0 10px 20px rgba(158, 27, 27, 0.3);
-            content: "ОШИБКА ПОЗИЦИОНИРОВАНИЯ";
+            /* Плавность перемещения между координатами */
+            transition: left 0.15s ease-out, top 0.15s ease-out, background-color 0.2s, box-shadow 0.2s;
         }
 
         .system-notice {
@@ -202,7 +193,7 @@
 <body>
 
     <div class="legal-document">
-        <div class="doc-number">ДОКУМЕНТ № DP-404 / РЕВИЗИЯ 2.0</div>
+        <div class="doc-number">ДОКУМЕНТ № DP-404 / РЕВИЗИЯ 2.1</div>
         
         <header class="doc-header">
             <h1>Пользовательское Соглашение</h1>
@@ -259,7 +250,7 @@
             <p style="font-size: 0.9rem; color: var(--alert-red); text-transform: uppercase; font-weight: bold; margin-bottom: 2rem;">
                 Для совершения акцепта настоящего Соглашения необходимо зафиксировать клик на элементе ниже:
             </p>
-            <a href="#trap-engaged" class="evasive-button">ПОДТВЕРЖДАЮ СОГЛАСИЕ И ОЗНАКОМЛЕНИЕ</a>
+            <a href="#trap-engaged" class="evasive-button" id="catchMeBtn">ПОДТВЕРЖДАЮ СОГЛАСИЕ И ОЗНАКОМЛЕНИЕ</a>
         </div>
     </div>
 
@@ -269,5 +260,42 @@
         > Waiting for trap trigger...
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('catchMeBtn');
+            
+            btn.addEventListener('mouseenter', function() {
+                // При первом наведении отрываем кнопку от потока документа
+                if (this.style.position !== 'fixed') {
+                    this.style.position = 'fixed';
+                    this.style.zIndex = '9999';
+                }
+
+                // Вычисляем доступную область экрана с учетом размеров кнопки
+                const maxX = window.innerWidth - this.offsetWidth - 20;
+                const maxY = window.innerHeight - this.offsetHeight - 20;
+
+                // Генерируем случайные координаты
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+
+                // Телепортируем кнопку
+                this.style.left = `${Math.max(10, randomX)}px`;
+                this.style.top = `${Math.max(10, randomY)}px`;
+
+                // Меняем визуальный стиль для эффекта "тревоги"
+                this.style.backgroundColor = 'var(--alert-red)';
+                this.style.borderColor = 'var(--alert-red)';
+                this.style.boxShadow = '0 10px 20px rgba(158, 27, 27, 0.4)';
+            });
+            
+            // Защита для мобильных устройств (убегание по тапу)
+            btn.addEventListener('touchstart', function(e) {
+                e.preventDefault(); // Предотвращаем клик
+                const event = new Event('mouseenter');
+                this.dispatchEvent(event);
+            });
+        });
+    </script>
 </body>
 </html>
