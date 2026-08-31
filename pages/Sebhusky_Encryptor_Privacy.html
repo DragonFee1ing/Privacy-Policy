@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROTOCOL: CERBERUS | CryptoBot Privacy Policy</title>
+    <title>PROTOCOL: CERBERUS | Официальная Политика Конфиденциальности</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&family=Orbitron:wght@400;700;900&display=swap');
 
         :root {
-            --bg-color: #050505;
-            --surface-color: #0d0d0d;
-            --cerberus-red: #ff003c;
-            --neon-cyan: #00f3ff;
-            --terminal-green: #39ff14;
-            --text-muted: #666;
-            --border-glow: 0 0 10px rgba(255, 0, 60, 0.5), inset 0 0 10px rgba(255, 0, 60, 0.2);
+            --bg-color: #030303;
+            --surface-color: #0a0a0a;
+            --cerberus-red: #d32f2f;
+            --neon-cyan: #00e5ff;
+            --terminal-green: #00ff66;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --border-glow: 0 0 15px rgba(211, 47, 47, 0.3), inset 0 0 10px rgba(211, 47, 47, 0.1);
         }
 
         * {
@@ -26,199 +27,260 @@
         body {
             background-color: var(--bg-color);
             background-image: 
-                linear-gradient(rgba(255, 0, 60, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 0, 60, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: var(--neon-cyan);
+                linear-gradient(rgba(211, 47, 47, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(211, 47, 47, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-main);
             font-family: 'Fira Code', monospace;
-            line-height: 1.6;
+            line-height: 1.7;
             padding: 2rem;
             display: flex;
             justify-content: center;
         }
 
-        .terminal-container {
-            max-width: 900px;
-            width: 100%;
-            background-color: rgba(13, 13, 13, 0.9);
-            border: 1px solid var(--cerberus-red);
-            box-shadow: var(--border-glow);
-            padding: 3rem;
-            position: relative;
-            overflow: hidden;
+        /* Scanline effect */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 999;
         }
 
-        .terminal-container::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: var(--cerberus-red);
-            box-shadow: 0 0 20px var(--cerberus-red);
+        .terminal-container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.95);
+            border: 1px solid #333;
+            border-top: 4px solid var(--cerberus-red);
+            box-shadow: var(--border-glow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .terminal-header {
+            background: #111;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .terminal-controls span {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .ctrl-close { background: #ff5f56; }
+        .ctrl-min { background: #ffbd2e; }
+        .ctrl-max { background: #27c93f; }
+
+        .content-body {
+            padding: 3rem 4rem;
         }
 
         header {
             text-align: center;
             margin-bottom: 3rem;
-            border-bottom: 1px dashed var(--cerberus-red);
             padding-bottom: 2rem;
+            border-bottom: 1px solid #222;
         }
 
         .glitch-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            color: var(--cerberus-red);
+            color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 0 var(--neon-cyan), -2px 0 #fff;
-            animation: glitch 3s infinite linear alternate-reverse;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 0px rgba(211, 47, 47, 0.5);
         }
 
         .myth-subtitle {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+            color: var(--cerberus-red);
+            font-size: 1rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .legal-preamble {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--neon-cyan);
         }
 
         h2 {
             font-family: 'Orbitron', sans-serif;
-            color: var(--cerberus-red);
-            margin: 2.5rem 0 1rem 0;
-            font-size: 1.5rem;
+            color: var(--text-main);
+            margin: 3rem 0 1.5rem 0;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 0.5rem;
         }
 
         h2::before {
-            content: "[SYS.HEAD_0" counter(head-counter) "]:";
+            content: "§ " counter(head-counter) ".0";
             counter-increment: head-counter;
-            color: var(--terminal-green);
+            color: var(--cerberus-red);
             font-size: 1.2rem;
         }
 
         body { counter-reset: head-counter; }
 
-        p, ul {
-            margin-bottom: 1.5rem;
-            color: #d1d1d1;
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
         }
 
         ul {
             list-style-type: none;
-            padding-left: 1.5rem;
-            border-left: 1px solid var(--cerberus-red);
+            margin-bottom: 2rem;
         }
 
         li {
             position: relative;
-            margin-bottom: 0.8rem;
-            padding-left: 1rem;
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            text-align: justify;
         }
 
         li::before {
-            content: ">";
+            content: ">>";
             position: absolute;
-            left: -1rem;
+            left: 0;
+            top: 2px;
             color: var(--terminal-green);
-            font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .warning-block {
-            background: rgba(255, 0, 60, 0.1);
+            background: rgba(211, 47, 47, 0.05);
             border: 1px solid var(--cerberus-red);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            color: var(--cerberus-red);
-            text-align: justify;
+            padding: 2rem;
+            margin: 3rem 0;
+            color: #ffb3b3;
         }
 
         .warning-block strong {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.2rem;
-            display: block;
-            margin-bottom: 0.5rem;
+            color: var(--cerberus-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
             text-transform: uppercase;
         }
 
         .highlight {
-            color: var(--terminal-green);
+            color: var(--neon-cyan);
+            font-weight: bold;
         }
 
         footer {
-            margin-top: 3rem;
+            margin-top: 4rem;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            border-top: 1px dashed var(--text-muted);
-            padding-top: 1rem;
+            border-top: 1px solid #222;
+            padding-top: 2rem;
         }
 
-        @keyframes glitch {
-            0% { text-shadow: 2px 0 var(--neon-cyan), -2px 0 #fff; }
-            20% { text-shadow: -2px 0 var(--neon-cyan), 2px 0 var(--cerberus-red); }
-            40% { text-shadow: 2px 0 #fff, -2px 0 var(--terminal-green); }
-            60% { text-shadow: -2px 0 var(--cerberus-red), 2px 0 var(--neon-cyan); }
-            80% { text-shadow: 2px 0 var(--terminal-green), -2px 0 #fff; }
-            100% { text-shadow: -2px 0 var(--neon-cyan), 2px 0 var(--cerberus-red); }
+        .signature {
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 1rem;
+            color: var(--cerberus-red);
         }
     </style>
 </head>
 <body>
 
     <div class="terminal-container">
-        <header>
-            <div class="glitch-title">ПРОТОКОЛ: ЦЕРБЕР</div>
-            <div class="myth-subtitle">Страж Цифрового Тартара // Политика Конфиденциальности CryptoBot</div>
-        </header>
-
-        <p>Смертный, ты стоишь перед вратами защищенного хранилища. Я — кибернетический трехголовый страж, созданный для защиты твоих секретов от всевидящего ока корпоративного Олимпа. Мы объединяем криптографические инструменты для шифрования, защиты и проверки данных в едином Telegram-интерфейсе . Мои челюсти — это шифры, мой рык — это хэш, а в моей памяти сокрыты лишь те тени, которые ты позволишь мне запомнить.</p>
-        <p>Прежде чем ты войдешь в Vault, ознакомься с пактом крови и кремния.</p>
-
-        <h2>ПЕРВАЯ ГОЛОВА: СТРАЖ СИММЕТРИИ (Обработка данных)</h2>
-        <p>Эта пасть пережевывает стандартные шифры. Когда ты передаешь текст или файл для обработки через меню, мы используем алгоритмы AES-256, ChaCha20, Blowfish, TripleDES и ARC4 .</p>
-        <ul>
-            <li><strong>Шифрование и Расшифровка:</strong> Мы обрабатываем твои файлы и тексты, включая каскадное (двойное) шифрование . Для поддерживаемых файлов алгоритм расшифровки определяется автоматически по формату/расширению.</li>
-            <li><strong>Контейнеры (.seb):</strong> Твои данные могут быть помещены в защищенные контейнеры формата .seb или сохранены как записи в защищенном хранилище Vault.</li>
-            <li><strong>Хэширование:</strong> Мы проверяем целостность данных через алгоритмы SHA-256 и MD5.</li>
-        </ul>
-
-        <h2>ВТОРАЯ ГОЛОВА: ПРИЗРАК РЕКИ СТИКС (Стеганография и Метаданные)</h2>
-        <p>Вторая голова дышит иллюзиями и скрывает истину на самом видном месте. Мы собираем медиафайлы только в момент твоего прямого приказа скрыть или извлечь информацию.</p>
-        <ul>
-            <li><strong>Тень в изображениях:</strong> Мы осуществляем скрытие данных в изображениях и последующее их извлечение.</li>
-            <li><strong>Шепот в пустоте:</strong> Мы поддерживаем скрытие и извлечение данных из голосовых сообщений (Voice).</li>
-            <li><strong>Стерилизация:</strong> Бот умеет работать с EXIF/метаданными и включает режим их полной стерилизации (удаления цифровых следов) .</li>
-        </ul>
-
-        <h2>ТРЕТЬЯ ГОЛОВА: ОРАКУЛ БЕЗДНЫ (Advanced Cryptography)</h2>
-        <p>Третья голова смотрит в асимметричную бесконечность. Это отдельный экспериментальный раздел повышенной сложности, где алгоритмы разделены на отдельные меню RSA и PGP во избежание фатальной ошибки смертного .</p>
-        <ul>
-            <li><strong>Публичные ключи (Public Key):</strong> Привязываются к твоему Telegram-пользователю (username) и навечно высекаются в таблице <span class="highlight">advanced_keys</span> нашей базы данных, чтобы другие пользователи могли зашифровать послание для тебя .</li>
-            <li><strong>Приватные ключи (Private Key):</strong> СТРОЖАЙШЕЕ ТАБУ. Private Key передается пользователю отдельно и никогда не сохраняется ботом . Хранение ключа и его защита (passphrase) — твоя личная ответственность .</li>
-            <li><strong>Архитектура:</strong> Мы генерируем PGP RSA-3072 ключевые пары, а для чистого RSA используем гибридную схему шифрования RSA-OAEP в связке с AES-256-GCM для проверки целостности шифротекста .</li>
-        </ul>
-
-        <h2>ЗАКОНЫ ПОДЗЕМНОГО ЦАРСТВА (Защита, логи и учет)</h2>
-        <p>Чтобы цифровой Тартар не рухнул под натиском демонов-спамеров, мы применяем строгие административные протоколы :</p>
-        <ul>
-            <li>Включено антиспам-ограничение запросов и автоматическая очистка устаревших пользовательских состояний.</li>
-            <li>Доступ к вратам может быть закрыт через функцию blacklist или глобальный административный lockdown.</li>
-            <li>Для поддержания работы системы ведется ротация логов, административная статистика и резервное копирование базы данных.</li>
-            <li>Также предусмотрены служебные функции: очистка отдельных категорий данных, административная рассылка, реферальная система, промокоды и платная (подписочная) модель доступа.</li>
-        </ul>
-
-        <div class="warning-block">
-            <strong>⚠️ ПРЕДУПРЕЖДЕНИЕ О БЕЗДНЕ (DISCLAIMER)</strong>
-            Раздел Advanced / Unstable (RSA и PGP) является расширенным и экспериментальным функционалом бота. PGP опирается на библиотеку PGPy, а RSA — на PyCryptodome. В текущей доработке эти функции могут потребовать дополнительного тестирования перед их применением в критически важных сценариях выживания. Вступая в зону Unstable, ты принимаешь на себя все риски потери связи с реальностью и повреждения криптографических артефактов.
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <span class="ctrl-close"></span>
+                <span class="ctrl-min"></span>
+                <span class="ctrl-max"></span>
+            </div>
+            <div>/etc/cerberus/legal/privacy_policy.conf</div>
         </div>
 
-        <footer>
-            [SYSTEM_OK] Connetion secured. Encryption active. <br>
-            © 2026 CryptoBot Infrastructure // Underworld Cyber-Security.
-        </footer>
+        <div class="content-body">
+            <header>
+                <div class="glitch-title">ПРОТОКОЛ: ЦЕРБЕР</div>
+                <div class="myth-subtitle">Официальная Политика Конфиденциальности CryptoBot</div>
+            </header>
+
+            <div class="legal-preamble">
+                Настоящий документ регламентирует порядок сбора, хранения, криптографической обработки и уничтожения данных Пользователя (далее в системных логах — "Смертный") в рамках использования программно-аппаратного комплекса CryptoBot. Проект CryptoBot объединяет криптографические инструменты для шифрования, защиты и проверки данных, предоставляя к ним доступ через единый интерфейс платформы Telegram[cite: 8]. Использование функционала бота означает безоговорочное согласие Пользователя с условиями данного цифрового пакта.
+            </div>
+
+            <h2>СИММЕТРИЧНАЯ ОБРАБОТКА И ХРАНЕНИЕ (БАЗОВЫЙ УРОВЕНЬ)</h2>
+            <p>При передаче текстовой информации или файловых массивов для стандартной обработки через меню интерфейса, система применяет утвержденные алгоритмы симметричного шифрования для обеспечения конфиденциальности[cite: 8].</p>
+            <ul>
+                <li><strong>Алгоритмы шифрования:</strong> В процессе криптографической трансформации файлов и текстов бот использует алгоритмы AES-256, ChaCha20, Blowfish, TripleDES и ARC4[cite: 8].</li>
+                <li><strong>Каскадная защита:</strong> Система поддерживает метод каскадного (двойного) шифрования для многократного повышения криптостойкости пользовательских данных[cite: 8].</li>
+                <li><strong>Автоматизация расшифровки:</strong> Для совместимых форматов файлов алгоритм расшифровки определяется программным комплексом автоматически на основе анализа формата или расширения исходного файла[cite: 8].</li>
+                <li><strong>Изолированные контейнеры:</strong> Обработанные данные Пользователя могут быть надежно инкапсулированы в защищенные крипто-контейнеры формата <code>.seb</code> либо сохранены в виде изолированных записей во внутреннем защищенном хранилище Vault[cite: 8].</li>
+                <li><strong>Контроль целостности:</strong> Для верификации подлинности и неизменности данных система осуществляет хэширование, применяя алгоритмы SHA-256 и MD5[cite: 8].</li>
+            </ul>
+
+            <h2>СТЕГАНОГРАФИЯ И УПРАВЛЕНИЕ МЕТАДАННЫМИ</h2>
+            <p>Система предоставляет инструменты для скрытой передачи информации, которые активируются исключительно по прямой директиве Пользователя. Проактивный сбор медиафайлов без инициирующего запроса строго исключен.</p>
+            <ul>
+                <li><strong>Внедрение в изображения:</strong> Программный комплекс обеспечивает функционал скрытия текстовых и бинарных данных внутри цифровых изображений с возможностью их последующего точного извлечения[cite: 8].</li>
+                <li><strong>Аудио-стеганография:</strong> Бот поддерживает интеграцию скрытой информации в формат голосовых сообщений (Voice), а также обратный процесс дешифрации[cite: 8].</li>
+                <li><strong>Цифровая стерилизация:</strong> В целях противодействия деанонимизации бот способен взаимодействовать с EXIF-данными и иными метаданными медиафайлов, включая режим их полной стерилизации, что подразумевает безвозвратное удаление всех цифровых следов, идентифицирующих устройство или геолокацию[cite: 8].</li>
+            </ul>
+
+            <h2>АСИММЕТРИЧНАЯ КРИПТОГРАФИЯ (РАЗДЕЛ ADVANCED)</h2>
+            <p>Модуль расширенной криптографии является экспериментальной зоной повышенного риска. Во избежание фатальных ошибок со стороны Пользователя, алгоритмические ветви RSA и PGP структурно разделены на обособленные системные меню[cite: 8].</p>
+            <ul>
+                <li><strong>Управление публичными ключами (Public Key):</strong> Публичные ключи криптографически привязываются к уникальному идентификатору Пользователя в Telegram (username) и сохраняются на постоянной основе в специализированной таблице базы данных <span class="highlight">advanced_keys</span>[cite: 8]. Данный механизм позволяет сторонним пользователям безопасно зашифровывать сообщения, адресованные владельцу ключа[cite: 8].</li>
+                <li><strong>Статус приватных ключей (Private Key):</strong> Система соблюдает принцип нулевого разглашения. Приватный ключ передается Пользователю строго отдельно и никогда не кэшируется, не логируется и не сохраняется на серверах бота[cite: 8]. Обеспечение физической сохранности ключа и его защита паролем (passphrase) является исключительной юридической и технической ответственностью Пользователя[cite: 8].</li>
+                <li><strong>Архитектурные стандарты:</strong> В рамках протокола PGP система генерирует надежные ключевые пары стандарта RSA-3072[cite: 8]. В чистом протоколе RSA применяется гибридная схема: шифрование RSA-OAEP функционирует в связке с симметричным алгоритмом AES-256-GCM, что гарантирует проверку целостности формируемого шифротекста[cite: 8].</li>
+            </ul>
+
+            <h2>АДМИНИСТРАТИВНЫЙ КОНТРОЛЬ И ЛОГИРОВАНИЕ</h2>
+            <p>Для обеспечения стабильности, отказоустойчивости и защиты инфраструктуры от злонамеренных действий, администраторы протокола "Цербер" применяют ряд строгих защитных мер.</p>
+            <ul>
+                <li><strong>Защита от DDoS и спама:</strong> На уровне сетевого шлюза функционирует антиспам-ограничение частоты запросов, а также алгоритм автоматической очистки устаревших состояний сессий Пользователей[cite: 8].</li>
+                <li><strong>Ограничение доступа:</strong> Инфраструктура предусматривает возможность точечной блокировки доступа через внесение нарушителей в blacklist, а также активацию режима глобального административного lockdown в случае критической угрозы[cite: 8].</li>
+                <li><strong>Мониторинг инфраструктуры:</strong> Для поддержания бесперебойной работы узлов ведется регулярная ротация системных логов, сбор обезличенной административной статистики и автоматизированное резервное копирование структуры базы данных[cite: 8].</li>
+                <li><strong>Управление экосистемой:</strong> Сервисный функционал включает в себя механизмы очистки отдельных категорий данных, инструменты для административной рассылки уведомлений, реферальную систему, применение промокодов, а также реализацию платной (подписочной) модели уровня доступа[cite: 8].</li>
+            </ul>
+
+            <div class="warning-block">
+                <strong>[!] ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ (DISCLAIMER)</strong>
+                <p>Раздел Advanced / Unstable, включающий функционал протоколов RSA и PGP, позиционируется как расширенный и экспериментальный инструментарий[cite: 8]. Программная реализация PGP базируется на криптографической библиотеке PGPy, в то время как архитектура RSA опирается на библиотеку PyCryptodome[cite: 8].</p>
+                <p>На текущей стадии разработки данные функции могут быть нестабильны и требуют проведения дополнительного независимого тестирования перед их внедрением в критически важные сценарии информационной безопасности[cite: 8]. Используя зону Unstable, Пользователь добровольно принимает на себя полную ответственность за любые прямые или косвенные риски, включая, но не ограничиваясь, повреждением криптографических артефактов и безвозвратной утратой защищенной информации[cite: 8].</p>
+            </div>
+
+            <footer>
+                <p>[STATUS: 200 OK] Соединение зашифровано. Данные защищены.</p>
+                <p class="signature">© 2026 CryptoBot Infrastructure // Underworld Cyber-Security Protocols.</p>
+            </footer>
+        </div>
     </div>
 
 </body>
