@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Медвежья Берлога | Политика конфиденциальности</title>
+    <title>Медвежья Берлога | Официальная Политика Конфиденциальности</title>
     <style>
         :root {
-            --bg-color: #181512;
-            --surface-color: #24201c;
-            --text-main: #e6dfd5;
-            --text-muted: #a39c93;
-            --accent-color: #d97706; /* Медовый/Янтарный */
-            --accent-hover: #f59e0b;
-            --border-radius: 16px;
+            --bg-main: #141210;
+            --bg-surface: #221d19;
+            --bg-card: #2c2520;
+            --accent-primary: #e68a00; /* Янтарный/Медовый официальный */
+            --accent-hover: #ff9d00;
+            --text-primary: #e8e4df;
+            --text-secondary: #a89f96;
+            --border-color: #3d342b;
+            --radius-md: 8px;
+            --radius-lg: 12px;
         }
 
         * {
@@ -22,76 +25,102 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
             padding: 2rem 1rem;
             display: flex;
             justify-content: center;
         }
 
-        .container {
-            max-width: 800px;
+        .document-container {
+            max-width: 850px;
             width: 100%;
-            animation: fadeIn 0.8s ease-out;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--accent-primary);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-out;
         }
 
-        header {
+        .document-header {
+            padding: 3rem 4rem 2rem;
+            border-bottom: 1px solid var(--border-color);
             text-align: center;
-            margin-bottom: 3rem;
+            background: linear-gradient(to bottom, rgba(230, 138, 0, 0.05), transparent);
         }
 
-        .emoji-icon {
-            font-size: 4rem;
+        .icon-wrapper {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
+            opacity: 0.9;
         }
 
         h1 {
-            color: var(--accent-color);
-            font-size: 2.5rem;
+            color: var(--accent-primary);
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
-            letter-spacing: -0.05em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .card {
-            background-color: var(--surface-color);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .document-body {
+            padding: 2rem 4rem 4rem;
+        }
+
+        .preamble {
+            background: rgba(230, 138, 0, 0.05);
+            border-left: 3px solid var(--accent-primary);
+            padding: 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            text-align: justify;
         }
 
         h2 {
-            color: var(--accent-color);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin: 2.5rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed var(--border-color);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "§";
+            color: var(--accent-primary);
+            font-weight: 400;
         }
 
         h3 {
-            color: #fff;
-            font-size: 1.2rem;
-            margin: 1.5rem 0 0.8rem 0;
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 600;
         }
 
         p {
             margin-bottom: 1rem;
+            text-align: justify;
         }
 
         ul {
-            list-style-type: none;
+            list-style: none;
             margin-bottom: 1.5rem;
         }
 
@@ -99,11 +128,7 @@
             position: relative;
             padding-left: 1.8rem;
             margin-bottom: 0.8rem;
-            transition: transform 0.2s ease;
-        }
-
-        li:hover {
-            transform: translateX(5px);
+            text-align: justify;
         }
 
         li::before {
@@ -111,118 +136,128 @@
             position: absolute;
             left: 0;
             top: 2px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
         }
 
-        .warning-box {
-            background: rgba(217, 119, 6, 0.1);
-            border-left: 4px solid var(--accent-color);
-            padding: 1.5rem;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            margin: 2rem 0;
+        .disclaimer-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .disclaimer-section h2 {
+            border-bottom: none;
+            margin-top: 0;
+            color: #ff5252;
+        }
+
+        .disclaimer-section h2::before {
+            content: "⚠️";
+            color: inherit;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        code {
+            background-color: #1a1614;
+            color: var(--accent-primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
         }
 
         footer {
             text-align: center;
-            color: var(--text-muted);
             margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
         }
 
-        strong {
-            color: #fff;
-        }
-
-        /* Анимации */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* Мобильная адаптация */
-        @media (max-width: 600px) {
-            .card { padding: 1.5rem; }
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
+        @media (max-width: 768px) {
+            .document-header { padding: 2rem; }
+            .document-body { padding: 1.5rem 2rem 2rem; }
+            h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="emoji-icon">🐻</div>
+    <div class="document-container">
+        <header class="document-header">
+            <div class="icon-wrapper">🐻</div>
             <h1>Медвежья Берлога</h1>
-            <p class="subtitle">Р-р-р… Привет. Проходи, располагайся поудобнее.</p>
+            <div class="subtitle">Официальная Политика Конфиденциальности</div>
         </header>
 
-        <div class="card">
-            <p>Знаешь, хоть я и большой пушистый медведь, которому больше по душе обнимашки и сладкие ягоды, я всё-таки живу в цифровом лесу. А здесь есть свои строгие правила. Поэтому я, вооружившись своими большими лапами, напечатал для тебя этот документ.</p>
-            <p>Ур-р… Обещаю, я не буду грузить тебя скучным юридическим языком. Я расскажу всё честно, глядя прямо в глаза.</p>
-        </div>
-
-        <div class="card">
-            <h2>📜 Политика конфиденциальности</h2>
-            
-            <h3>1. Что именно попадает в мои лапы</h3>
-            <p>Когда ты начинаешь со мной общаться, мне нужно немного информации, чтобы знать, с кем я имею дело:</p>
-            <ul>
-                <li><strong>Твой Telegram ID:</strong> Это твой уникальный запах в лесу. Он нужен мне, чтобы отличать тебя от других гостей и вести статистику.</li>
-                <li><strong>Твои сообщения и медиа:</strong> Тексты, голосовые сообщения, картинки и файлы (весом до 20 МБ — более тяжелые камни я просто не подниму).</li>
-                <li><strong>Настройки:</strong> Твоя выбранная модель (быстрая или Pro), заданные тобой роли, темы для тренировок и системные инструкции.</li>
-                <li><strong>Бизнес-связи:</strong> Если ты доверишь мне работу своего личного секретаря, я запомню ID нашего соединения, чтобы отвечать твоим контактам.</li>
-            </ul>
-
-            <h3>2. Зачем мне твои секреты</h3>
-            <p>Я не собираю данные ради того, чтобы они просто лежали в углу берлоги. Они нужны для дела:</p>
-            <ul>
-                <li><strong>Поддержание беседы:</strong> Я держу контекст нашего диалога в своей памяти ровно 2 часа. После этого я «засыпаю» и забываю, о чём мы говорили.</li>
-                <li><strong>Генерация ответов:</strong> Я отправляю твои тексты и файлы в мозг нейросети, чтобы придумать для тебя самый умный и тёплый ответ.</li>
-                <li><strong>Статистика:</strong> Мой Создатель ведёт подсчет уникальных гостей и ошибок, а иногда делает общую рассылку.</li>
-                <li><strong>Защита от спама:</strong> Я считаю твои сообщения, чтобы никто не закидал меня шишками (DDoS) и не вывел из себя.</li>
-            </ul>
-
-            <h3>3. Кому я показываю твои данные</h3>
-            <ul>
-                <li><strong>Google (Gemini API):</strong> Мой интеллект работает на их серверах. Все твои вопросы летят к ним для обработки.</li>
-                <li><strong>MongoDB:</strong> Это моя надёжная кладовая, где хранится статистика и системные настройки.</li>
-            </ul>
-
-            <h3>4. Как долго я храню твои следы</h3>
-            <ul>
-                <li>Контекст беседы удаляется автоматически через 2 часа тишины.</li>
-                <li>Твой Telegram ID остаётся в моей базе данных статистики навсегда.</li>
-                <li>Если ты захочешь всё забыть, просто почеши меня за ушком командой <code>/clear</code> — и я тут же сотру текущий диалог.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>⚠️ Отказ от ответственности</h2>
-            
-            <div class="warning-box">
-                <p>Хм-м… А теперь серьёзно. Внимательно послушай своего медведя.</p>
+        <div class="document-body">
+            <div class="preamble">
+                Настоящий документ регламентирует порядок сбора, хранения и обработки пользовательских данных в рамках функционирования ИИ-ассистента «Медвежья Берлога». Несмотря на наш дружелюбный пушистый талисман, к вопросам цифровой безопасности и приватности мы подходим со всей серьезностью. Использование сервиса означает полное согласие с изложенными ниже условиями.
             </div>
 
+            <h2>Сбор и категоризация данных</h2>
+            <p>Для обеспечения корректной работы сервиса и персонализации ответов система собирает следующий минимальный объем информации:</p>
             <ul>
-                <li><strong>Я — искусственный интеллект.</strong> Хоть я и звучу как живой, теплый зверь, мои мозги — это код. Я могу придумывать несуществующие факты или выдавать чепуху с очень уверенным видом.</li>
-                <li><strong>Никаких советов для жизни.</strong> Никогда не используй мои ответы как руководство к действию в медицинских, юридических или финансовых вопросах. Если что-то болит — иди к врачу.</li>
-                <li><strong>Безопасность файлов.</strong> Не отправляй мне пароли, номера кредитных карт и государственные тайны. Бережёного, как говорится, лес бережёт.</li>
-                <li><strong>Гарантии стабильности.</strong> Я могу в любой момент уйти в спячку (упасть с ошибкой 503). Создатель предоставляет меня "как есть".</li>
-                <li><strong>Режим секретаря.</strong> Если ты включишь меня отвечать твоим контактам, я не несу ответственности за то, что ляпну твоему начальнику. Проверяй за мной!</li>
+                <li><strong>Идентификатор пользователя:</strong> Мы фиксируем ваш уникальный Telegram ID, который необходим для идентификации сессий и ведения внутренней статистики.</li>
+                <li><strong>Пользовательский контент:</strong> Система обрабатывает входящие текстовые запросы, голосовые сообщения, а также изображения и файлы, размер которых не превышает лимит в 20 МБ.</li>
+                <li><strong>Конфигурации и настройки:</strong> Сохраняются выбранные вами параметры, включая предпочтительную ИИ-модель (быстрая или Pro), заданные роли, темы для тренировок и системные инструкции.</li>
+                <li><strong>Интеграционные данные:</strong> При активации режима «личного секретаря» система фиксирует ID соединения для обеспечения корректной маршрутизации ответов вашим контактам.</li>
             </ul>
-        </div>
 
-        <footer>
-            <p>Продолжая чесать мне пузико и отправляя сообщения в чат, ты автоматически соглашаешься с этими правилами.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.5;">© 2026 AI Bear Bot. Все права защищены лесной братвой.</p>
-        </footer>
+            <h2>Цели обработки информации</h2>
+            <p>Собранные данные используются исключительно для поддержания работоспособности «Берлоги» и не подлежат коммерческой реализации третьим лицам:</p>
+            <ul>
+                <li><strong>Поддержание контекста:</strong> Система удерживает контекст текущего диалога в оперативной памяти ровно 2 часа, после чего данные автоматически удаляются.</li>
+                <li><strong>Генерация ответов:</strong> Пользовательские тексты и файлы маршрутизируются в нейросеть для формирования релевантных ответов.</li>
+                <li><strong>Аналитика:</strong> Создатель проекта ведет сбор статистики уникальных пользователей и системных ошибок, а также может использовать базу для общих информационных рассылок.</li>
+                <li><strong>Безопасность (Anti-DDoS):</strong> Осуществляется подсчет количества сообщений для защиты инфраструктуры от спам-атак и предотвращения перегрузок.</li>
+            </ul>
+
+            <h2>Сторонние интеграции (Третьи лица)</h2>
+            <p>В процессе работы сервис взаимодействует со следующими внешними провайдерами:</p>
+            <ul>
+                <li><strong>Google (Gemini API):</strong> Вычислительная обработка запросов и генерация ИИ-ответов осуществляется на мощностях серверов Google.</li>
+                <li><strong>MongoDB:</strong> Выступает в качестве облачной базы данных для надежного хранения системных настроек и статистики.</li>
+            </ul>
+
+            <h2>Сроки хранения и управление памятью</h2>
+            <ul>
+                <li>Оперативный контекст вашей беседы автоматически уничтожается после 2 часов отсутствия активности.</li>
+                <li>Базовый идентификатор (Telegram ID) сохраняется в статистической базе данных на постоянной основе.</li>
+                <li>Пользователь имеет право инициировать принудительное удаление текущего диалога в любой момент с помощью системной команды <code>/clear</code>.</li>
+            </ul>
+
+            <div class="disclaimer-section">
+                <h2>Отказ от ответственности (Disclaimer)</h2>
+                <p>Перед началом эксплуатации ИИ-ассистента Пользователь обязан ознакомиться со следующими системными ограничениями:</p>
+                <ul>
+                    <li><strong>Природа Искусственного Интеллекта:</strong> Ассистент функционирует на базе генеративных нейросетей, которые склонны к галлюцинациям. ИИ может с уверенным видом генерировать несуществующие факты или некорректные данные.</li>
+                    <li><strong>Отсутствие профессиональных рекомендаций:</strong> Категорически запрещается использовать ответы системы в качестве руководства к действию в медицинских, юридических или финансовых вопросах.</li>
+                    <li><strong>Ограничения конфиденциальности:</strong> Пользователю строго запрещается передавать системе конфиденциальную информацию, включая пароли, номера кредитных карт и государственные тайны.</li>
+                    <li><strong>Статус «As Is»:</strong> Создатель предоставляет сервис «как есть». Система может быть временно недоступна или уйти в незапланированную спячку (выдавать ошибку 503).</li>
+                    <li><strong>Режим «Личного секретаря»:</strong> При делегировании боту права отвечать вашим контактам, Пользователь несет единоличную ответственность за содержание сгенерированных ответов и возможные репутационные риски.</li>
+                </ul>
+            </div>
+
+            <footer>
+                <p>Продолжая взаимодействие с ботом, Пользователь подтверждает свое согласие с условиями настоящей Политики.</p>
+                <p style="margin-top: 0.5rem; opacity: 0.5;">© 2026 AI Bear Bot. Инфраструктура цифрового леса.</p>
+            </footer>
+        </div>
     </div>
 
 </body>
