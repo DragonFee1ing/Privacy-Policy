@@ -3,280 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRITICAL SYSTEM ALERT // ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ</title>
+    <title>СОГЛАШЕНИЕ ОБ ОСОЗНАННОМ УЧАСТИИ В СТРЕСС-ТЕСТИРОВАНИИ</title>
     <style>
-        /* Более строгий, но всё ещё спам-стиль (в духе Ransomware / Fake Antivirus) */
+        :root {
+            --paper-bg: #fcfbf9;
+            --ink-main: #1a1a1a;
+            --ink-muted: #4a4a4a;
+            --alert-red: #9e1b1b;
+            --border-color: #d1cbbd;
+        }
+
         body {
-            background-color: #1a0000;
-            background-image: repeating-linear-gradient(45deg, #1a0000, #1a0000 20px, #330000 20px, #330000 40px);
-            font-family: 'Courier New', Courier, monospace;
-            color: #fff;
+            background-color: #e8e6e1;
+            color: var(--ink-main);
+            font-family: 'Times New Roman', Times, serif; /* Официальный юридический шрифт */
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
             overflow-x: hidden;
             user-select: none;
         }
 
-        .main-container {
+        .legal-document {
+            background-color: var(--paper-bg);
             max-width: 850px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            color: #000000;
-            border: 4px solid #ff0000;
-            outline: 10px solid #000000;
-            padding: 30px;
-            box-shadow: 0 0 50px rgba(255, 0, 0, 0.8);
+            width: 100%;
+            padding: 3rem 4rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
+                        0 0 0 1px rgba(0, 0, 0, 0.05);
             position: relative;
         }
 
-        /* Тревожные анимации */
-        @keyframes strobe-red {
-            0%, 100% { background-color: #ff0000; color: #ffffff; }
-            50% { background-color: #000000; color: #ff0000; }
+        /* Тонкий намек на угрозу: красная линия сверху */
+        .legal-document::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(45deg, var(--alert-red), var(--alert-red) 10px, #7a1515 10px, #7a1515 20px);
         }
 
-        @keyframes subtle-shake {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-2px, 1px); }
-            50% { transform: translate(2px, -1px); }
-            75% { transform: translate(-1px, 2px); }
-            100% { transform: translate(0, 0); }
+        .doc-header {
+            text-align: center;
+            border-bottom: 2px solid var(--ink-main);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        @keyframes glitch-text {
-            0% { text-shadow: 2px 0 0 red, -2px 0 0 blue; }
-            100% { text-shadow: -2px 0 0 red, 2px 0 0 blue; }
-        }
-
-        .alert-banner {
-            background-color: #ff0000;
-            color: #ffffff;
-            font-size: 26px;
-            font-weight: 900;
-            font-family: 'Arial Black', sans-serif;
-            padding: 15px;
-            margin-bottom: 20px;
-            animation: strobe-red 0.8s infinite;
-            border: 3px solid #000;
-            text-transform: uppercase;
+        .doc-number {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            text-align: right;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
         h1 {
-            color: #cc0000;
-            font-size: 28px;
-            margin: 15px 0;
-            font-family: 'Arial Black', sans-serif;
-            text-decoration: underline;
-        }
-
-        .header-subtext {
-            font-size: 18px;
-            font-weight: bold;
-            color: #000;
-            background: #ffff00;
-            display: inline-block;
-            padding: 5px 10px;
-            border: 2px solid #000;
-            margin-bottom: 20px;
-        }
-
-        .policy-text {
-            text-align: left;
-            font-size: 15px;
-            line-height: 1.5;
-            border: 2px solid #000;
-            padding: 20px;
-            background: #f4f4f4;
-            height: 350px;
-            overflow-y: scroll;
-            margin-bottom: 20px;
-            font-family: 'Arial', sans-serif;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
-        }
-
-        .policy-text h2 {
-            background-color: #000;
-            color: #fff;
-            padding: 8px;
-            margin-top: 20px;
-            font-size: 18px;
+            font-size: 1.6rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 0.5rem 0;
         }
 
-        .policy-text h2:first-child {
+        .subtitle {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--ink-muted);
+        }
+
+        .timer-stamp {
+            border: 2px solid var(--alert-red);
+            color: var(--alert-red);
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            margin-top: 1rem;
+            transform: rotate(-2deg);
+            animation: pulse-border 2s infinite;
+        }
+
+        .article {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "§";
+            color: var(--alert-red);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+
+        li::marker {
+            content: "— ";
+            color: var(--ink-muted);
+        }
+
+        .highlight-term {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .disclaimer-section {
+            background-color: #f5f2ec;
+            border-left: 4px solid var(--ink-main);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            font-size: 0.95rem;
+            color: var(--ink-muted);
+        }
+
+        .disclaimer-section p:first-child {
             margin-top: 0;
         }
 
-        .policy-text ul {
-            padding-left: 20px;
+        /* Кнопка "подписания" */
+        .signature-block {
+            margin-top: 4rem;
+            text-align: center;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 2rem;
         }
 
-        .policy-text li {
-            margin-bottom: 10px;
-        }
-
-        .giant-button {
-            display: block;
-            width: 80%;
-            margin: 30px auto;
-            background: #ff0000;
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 900;
-            font-family: 'Arial Black', sans-serif;
+        .evasive-button {
+            display: inline-block;
+            background-color: var(--ink-main);
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
             text-transform: uppercase;
-            padding: 20px;
-            border: 6px inset #cc0000;
-            cursor: pointer;
+            padding: 1rem 3rem;
+            border: 2px solid var(--ink-main);
+            cursor: crosshair;
             text-decoration: none;
-            transition: all 0.1s;
-        }
-
-        .giant-button:hover {
-            /* Эмуляция убегающей кнопки через ховер */
-            transform: translate(20px, -20px);
-            background: #000000;
-            color: #ff0000;
-            border-color: #ff0000;
-        }
-
-        /* Индикатор угрозы */
-        .progress-bar-container {
-            width: 100%;
-            background: #000;
-            border: 3px solid #ff0000;
-            height: 35px;
-            margin: 20px 0;
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
         }
 
-        .progress-bar-fill {
-            height: 100%;
-            background: repeating-linear-gradient(45deg, #ff0000, #ff0000 10px, #cc0000 10px, #cc0000 20px);
-            width: 94%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-family: 'Arial', sans-serif;
-            animation: subtle-shake 0.5s infinite;
+        /* Механика убегания через CSS для демонстрации */
+        .evasive-button:hover {
+            transform: translate(30px, -40px) scale(0.9);
+            background-color: var(--alert-red);
+            border-color: var(--alert-red);
+            box-shadow: 0 10px 20px rgba(158, 27, 27, 0.3);
+            content: "ОШИБКА ПОЗИЦИОНИРОВАНИЯ";
         }
 
-        .fake-close {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: #cccccc;
-            color: #000000;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            padding: 5px 12px;
-            cursor: pointer;
-            border: 2px outset #ffffff;
-        }
-
-        .fake-close:active {
-            border: 2px inset #ffffff;
-        }
-
-        .disclaimer-box {
-            border: 2px dashed #ff0000;
-            background: #ffe6e6;
-            padding: 15px;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #cc0000;
-            font-family: 'Arial', sans-serif;
-            font-size: 14px;
-        }
-
-        /* Фейковое уведомление */
-        .fake-notification {
+        .system-notice {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #ffffff;
-            color: #000000;
-            border: 2px solid #000000;
-            border-top: 10px solid #0000ff;
-            padding: 15px;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.8);
-            z-index: 9999;
-            text-align: left;
-            font-family: 'Arial', sans-serif;
-            font-size: 14px;
-            animation: subtle-shake 2s infinite;
+            bottom: 1rem;
+            right: 1rem;
+            background: #fff;
+            border: 1px solid var(--ink-main);
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+            opacity: 0.8;
+            pointer-events: none;
         }
 
-        .fake-notification strong {
-            color: #0000ff;
+        @keyframes pulse-border {
+            0%, 100% { border-color: var(--alert-red); opacity: 1; }
+            50% { border-color: transparent; opacity: 0.5; }
         }
 
+        @media (max-width: 768px) {
+            .legal-document { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.3rem; }
+            .evasive-button { padding: 1rem 2rem; width: 100%; box-sizing: border-box; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="fake-close">X</div>
+    <div class="legal-document">
+        <div class="doc-number">ДОКУМЕНТ № DP-404 / РЕВИЗИЯ 2.0</div>
         
-        <div class="alert-banner">
-            СТАТУС: ЛОВУШКА АКТИВИРОВАНА // ПРИМИТЕ СОГЛАШЕНИЕ
-        </div>
+        <header class="doc-header">
+            <h1>Пользовательское Соглашение</h1>
+            <div class="subtitle">Об осознанном участии в деструктивном стресс-тестировании пользовательских интерфейсов</div>
+            
+            <div class="timer-stamp">
+                АКЦЕПТ ДОКУМЕНТА ОЖИДАЕТСЯ В ТЕЧЕНИЕ: 00:04
+            </div>
+        </header>
 
-        <h1>ИНТЕРАКТИВНЫЙ СКАМ-СИМУЛЯТОР</h1>
-        <div class="header-subtext">Web Trap / System Alert v2.0</div>
-
-        <div class="progress-bar-container">
-            <div class="progress-bar-fill">ВРЕМЯ НА ПРИНЯТИЕ РЕШЕНИЯ ИСТЕКАЕТ: 00:04</div>
-        </div>
-
-        <div class="policy-text">
-            <h2>РАЗДЕЛ 1. Психологические триггеры и механики</h2>
+        <div class="article">
+            <h2>Предмет соглашения и методы социальной инженерии</h2>
+            <p>Настоящим Пользователь подтверждает свою осведомленность о том, что данная среда использует агрессивные паттерны манипуляции. Исполнитель оставляет за собой право применять следующие механики:</p>
             <ul>
-                <li>Мы применяем фейковый экран загрузки (имитация проверки Cloudflare) для усыпления вашей бдительности.</li>
-                <li>Мы используем мимикрию под розыгрыш ценного приза (уведомление о выигрыше).</li>
-                <li>Внедрен обратный отсчет (фейковый таймер) для создания чувства срочности.</li>
-                <li>В интерфейсе присутствует "живая" кнопка, которая плавно и моментально убегает от курсора мыши или попытки касания в случайную точку экрана, не давая нажать на себя.</li>
-            </ul>
-
-            <h2>РАЗДЕЛ 2. Система наказаний (Геометрическая прогрессия)</h2>
-            <ul>
-                <li>Любое неверное действие (клик мимо кнопки, попытка закрыть окно, системный свайп назад) или истечение времени запускает алгоритм атаки.</li>
-                <li>Атака растет в геометрической прогрессии (2, 4, 8, 16...), пытаясь открыть массив спам-ссылок в новых вкладках.</li>
-            </ul>
-
-            <h2>РАЗДЕЛ 3. Гибридный спам</h2>
-            <ul>
-                <li>Если браузер блокирует открытие новых вкладок, скрипт детектирует это и переключается на внутренний DOM-спам.</li>
-                <li>Генерируется каскад фейковых плавающих окон (имитация системных ошибок, вирусов, сообщений).</li>
-                <li>Попытка закрыть фейковое окно на "крестик" не удаляет его, а визуально "ломает" и спавнит новые окна в умноженном количестве.</li>
-            </ul>
-
-            <h2>РАЗДЕЛ 4. "Мобильный кошмар" (Mobile-specific ловушки)</h2>
-            <ul>
-                <li><strong>History API Trap:</strong> Засорение истории браузера 20 пустыми записями. При попытке нажать системную кнопку "Назад" вы остаетесь на странице, а скрипт запускает новую волну спама окон.</li>
-                <li><strong>Fullscreen API:</strong> При первом же касании страница принудительно переходит в полноэкранный режим.</li>
-                <li><strong>CSS-блокировки:</strong> Полный запрет скроллинга, зуммирования и обновления свайпом вниз (pull-to-refresh).</li>
-                <li>Используется агрессивная тактильная отдача через navigator.vibrate() с рваными и длинными паттернами вибрации при любых триггерах ловушки.</li>
+                <li>Генерация ложного чувства безопасности через эмуляцию защитных шлюзов (в частности, имитацию проверок Cloudflare).</li>
+                <li>Использование триггеров азарта посредством имитации уведомлений о выигрыше.</li>
+                <li>Применение таймеров обратного отсчета для создания искусственной и ложной срочности.</li>
+                <li>Внедрение интерактивных элементов (кнопок согласия), программно уклоняющихся от взаимодействия с курсором Пользователя. <em>Примечание: Отсутствие у Пользователя должной зрительно-моторной реакции не признается обстоятельством непреодолимой силы (форс-мажором).</em></li>
             </ul>
         </div>
 
-        <div class="disclaimer-box">
-            ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ: Данный проект представляет собой агрессивную веб-страницу-ловушку. Скрипт является исключительно наглядной демонстрацией уязвимостей пользовательского интерфейса браузеров и паттернов "темного UX" (Dark Patterns), объединяя визуальные манипуляции и злоупотребление браузерными API в замкнутую, самовоспроизводящуюся экосистему спама. Главная цель — дезориентировать пользователя и максимально усложнить выход со страницы.
+        <div class="article">
+            <h2>Протоколы эскалации и система штрафных санкций</h2>
+            <p>Любое действие Пользователя, классифицируемое Системой как неверное (включая, но не ограничиваясь: промах курсором при клике, попытку закрытия текущего окна, использование системного жеста «назад» или истечение таймера), активирует автоматический алгоритм атаки.</p>
+            <p>Данный алгоритм инициирует открытие массива ссылок в новых вкладках браузера. Эскалация процесса осуществляется в строгой геометрической прогрессии (2, 4, 8, 16 инстансов и далее).</p>
         </div>
 
-        <p style="font-size: 16px; font-weight: bold; animation: glitch-text 0.2s infinite;">ДЛЯ ПРОДОЛЖЕНИЯ ВЫ ДОЛЖНЫ ПОЙМАТЬ КНОПКУ НИЖЕ:</p>
+        <div class="article">
+            <h2>Алгоритмы гибридного рендеринга (Гидра-протокол)</h2>
+            <p>В случае, если пользовательское ПО (браузер) успешно блокирует несанкционированное открытие новых вкладок, Система автоматически детектирует данную защиту и переключается на внутренний DOM-рендеринг.</p>
+            <ul>
+                <li>Система генерирует неконтролируемый каскад плавающих окон, визуально имитирующих критические системные ошибки.</li>
+                <li>Попытка ликвидации угрозы (закрытие окна через нажатие на элемент «крестик») не приводит к его удалению. Вместо этого происходит визуальный «излом» элемента и рекурсивный спавн новых окон в умноженном количестве.</li>
+            </ul>
+        </div>
 
-        <a href="#" class="giant-button">Я СОГЛАСЕН С УСЛОВИЯМИ ЛОВУШКИ</a>
+        <div class="article">
+            <h2>Спецификации удержания для мобильных устройств</h2>
+            <p>При доступе к Системе с портативных устройств применяются специализированные протоколы изоляции сессии:</p>
+            <ul>
+                <li><span class="highlight-term">History API Poisoning:</span> Производится засорение истории браузера путем внедрения до 20 пустых записей. Данная манипуляция блокирует возможность выхода со страницы посредством системной кнопки «Назад», провоцируя новую волну спама при каждой попытке.</li>
+                <li><span class="highlight-term">Fullscreen Захват:</span> При первой тактильной интеракции страница осуществляет принудительный переход в полноэкранный режим с использованием Fullscreen API.</li>
+                <li><span class="highlight-term">Сенсорная Депривация:</span> Устанавливается жесткая CSS-блокировка скроллинга, жестового масштабирования (zoom) и функции обновления страницы жестом pull-to-refresh.</li>
+                <li><span class="highlight-term">Тактильный Террор:</span> Система эксплуатирует интерфейс navigator.vibrate, генерируя агрессивную тактильную отдачу с длительными и рваными паттернами вибрации при срабатывании любых триггеров ловушки.</li>
+            </ul>
+        </div>
+
+        <div class="disclaimer-section">
+            <strong>ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ (DISCLAIMER):</strong> 
+            <p>Стороны признают, что настоящий проект несет исключительно академический и демонстрационный характер. Размещенный скрипт является наглядной демонстрацией уязвимостей пользовательского интерфейса (UI) современных браузеров и паттернов «темного UX» (Dark Patterns). Проект объединяет визуальные манипуляции и злоупотребление браузерными API в замкнутую экосистему, главной целью которой является дезориентация пользователя и максимизация сложности выхода из сессии. Исполнитель не несет ответственности за моральный ущерб или повышение артериального давления Пользователя.</p>
+        </div>
+
+        <div class="signature-block">
+            <p style="font-size: 0.9rem; color: var(--alert-red); text-transform: uppercase; font-weight: bold; margin-bottom: 2rem;">
+                Для совершения акцепта настоящего Соглашения необходимо зафиксировать клик на элементе ниже:
+            </p>
+            <a href="#trap-engaged" class="evasive-button">ПОДТВЕРЖДАЮ СОГЛАСИЕ И ОЗНАКОМЛЕНИЕ</a>
+        </div>
     </div>
 
-    <!-- Фейковое системное уведомление -->
-    <div class="fake-notification">
-        <strong>Security Alert:</strong><br>
-        Multiple DOM elements spawned.<br>
-        Attempting to block popup... FAILED.
+    <div class="system-notice">
+        Системный Журнал:<br>
+        > DOM elements spawned: 0<br>
+        > Waiting for trap trigger...
     </div>
 
 </body>
