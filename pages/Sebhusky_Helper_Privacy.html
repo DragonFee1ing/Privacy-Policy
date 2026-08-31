@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sebhusky's Helper | Официальная Политика Конфиденциальности</title>
     <style>
         :root {
@@ -32,6 +32,8 @@
             padding: 2rem 1rem;
             display: flex;
             justify-content: center;
+            /* Фикс для мобильных браузеров */
+            min-height: 100dvh; 
         }
 
         .document-container {
@@ -54,9 +56,19 @@
         }
 
         .icon-wrapper {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .icon-wrapper img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
             opacity: 0.9;
+            display: block;
+            margin: 0 auto;
+            /* Легкое свечение для интеграции в темный дизайн */
+            filter: drop-shadow(0 4px 12px rgba(230, 138, 0, 0.15));
         }
 
         h1 {
@@ -172,6 +184,7 @@
             font-family: monospace;
             font-size: 0.9em;
             border: 1px solid var(--border-color);
+            word-break: break-all;
         }
 
         footer {
@@ -188,10 +201,52 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* === МОБИЛЬНАЯ АДАПТАЦИЯ === */
         @media (max-width: 768px) {
-            .document-header { padding: 2rem; }
-            .document-body { padding: 1.5rem 2rem 2rem; }
-            h1 { font-size: 1.8rem; }
+            body { 
+                padding: 1rem 0.5rem; 
+            }
+            .document-container {
+                border-radius: var(--radius-md);
+            }
+            .document-header { 
+                padding: 2rem 1.5rem 1.5rem; 
+            }
+            .document-body { 
+                padding: 1.5rem 1.5rem 2rem; 
+            }
+            h1 { 
+                font-size: 1.6rem; 
+            }
+            .subtitle {
+                font-size: 0.85rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+                margin: 2rem 0 1rem;
+            }
+            h3 {
+                font-size: 1.05rem;
+            }
+            .icon-wrapper img {
+                width: 65px;
+                height: 65px;
+            }
+            /* Отключаем justify на узких экранах во избежание огромных пробелов */
+            p, li, .preamble {
+                text-align: left; 
+            }
+            .preamble {
+                padding: 1.2rem;
+                font-size: 0.9rem;
+            }
+            .disclaimer-section {
+                padding: 1.5rem;
+                margin-top: 2.5rem;
+            }
+            li {
+                padding-left: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -199,7 +254,9 @@
 
     <div class="document-container">
         <header class="document-header">
-            <div class="icon-wrapper">🐻</div>
+            <div class="icon-wrapper">
+                <img src="media/bear.png" alt="Медвежья Берлога">
+            </div>
             <h1>Sebhusky's Helper</h1>
             <div class="subtitle">Официальная Политика Конфиденциальности</div>
         </header>
